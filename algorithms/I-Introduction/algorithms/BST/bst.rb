@@ -1,5 +1,4 @@
 require_relative 'node' 
-require 'pry'
 
 class BST
   attr_accessor :root
@@ -17,6 +16,7 @@ class BST
       if node.value > current_node.value
         if current_node.right.nil?
           current_node.right = node
+          node.parent = current_node
           return
         else
           current_node = current_node.right
@@ -24,6 +24,7 @@ class BST
       else
         if current_node.left.nil?
           current_node.left = node
+          node.parent = current_node
           return
         else
           current_node = current_node.left
@@ -44,17 +45,5 @@ class BST
       end
     end
     current_node
-  end
-
-  def find_min(node)
-    raise 'node should be an instance of Node' unless node.is_a? Node
-    while node.left
-      node = node.left
-    end
-    node
-  end
-
-  def delete(value)
-    current_node = search(value)
   end
 end

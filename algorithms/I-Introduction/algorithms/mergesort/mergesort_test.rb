@@ -1,7 +1,7 @@
 require_relative 'mergesort'
 require "test/unit"
  
-class TestSimpleNumber < Test::Unit::TestCase
+class TestMergesort < Test::Unit::TestCase
   def test_merge
     array_a = [1, 2, 6, 7]
     array_b = [3, 4, 5, 8]
