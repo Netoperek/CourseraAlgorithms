@@ -1,5 +1,5 @@
 require_relative 'inversions'
-require_relative 'file_to_array'
+require_relative '../../file_to_array'
 require "test/unit"
 
 class TestInversions < Test::Unit::TestCase
