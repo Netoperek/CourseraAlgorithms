@@ -8,9 +8,10 @@ class RandomizedSelectionTest < Test::Unit::TestCase
   def random_uniq_array
     numbers_set = Set.new
     numbers = []
-    1000.times do
+    numbers_to_random = (1..2000000).to_a
+    1000000.times do
       while true
-        number = (1..1000).to_a.sample
+        number = numbers_to_random.sample
         unless numbers_set.include? number
           numbers_set.add number
           numbers.push number
