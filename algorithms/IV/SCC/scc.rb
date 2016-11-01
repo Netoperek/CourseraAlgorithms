@@ -18,23 +18,19 @@ def scc(graph, graph_rev)
 end
 
 def dfs(graph, i)
-  stack = []
-  stack.push(i)
+  stack = [i]
   path = []
   
   while stack.size > 0
     i = stack.pop
     unless $explored[i]
       path.push(i)
-      stack = [i] + stack
       $explored[i] = true 
 
       $leaders[$leader] ||= []
       $leaders[$leader].push(i)
 
-      if !graph[i].nil?
-        graph[i].each { |j| stack.push(j) if !$explored[j]} 
-      end
+      graph[i].each { |j| stack.push(j) if !$explored[j]} !graph[i].nil?
     end
   end
 
@@ -47,7 +43,6 @@ end
 
 def first_dfs_loop(graph)
   (1..graph.size-1).reverse_each do |i|
-    puts i
     dfs(graph, i) unless $explored[i]
   end
 end
