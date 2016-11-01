@@ -23,7 +23,6 @@ def dfs(graph, i)
   path = []
   
   while stack.size > 0
-    puts stack.size if $a
     i = stack.pop
     unless $explored[i]
       path.push(i)
@@ -48,7 +47,7 @@ end
 
 def first_dfs_loop(graph)
   (1..graph.size-1).reverse_each do |i|
-    $a = true if i == 874931
+    puts i
     dfs(graph, i) unless $explored[i]
   end
 end
