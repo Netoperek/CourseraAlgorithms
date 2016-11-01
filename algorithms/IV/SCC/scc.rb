@@ -30,7 +30,7 @@ def dfs(graph, i)
       $leaders[$leader] ||= []
       $leaders[$leader].push(i)
 
-      graph[i].each { |j| stack.push(j) if !$explored[j]} !graph[i].nil?
+      graph[i].each { |j| stack.push(j) if !$explored[j]} if !graph[i].nil?
     end
   end
 
