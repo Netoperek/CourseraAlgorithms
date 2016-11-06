@@ -26,7 +26,6 @@ def dijkstra(graph, source)
   distance[source] = 0
 
   while queue.size > 0
-    binding.pry
     u = min(queue, distance)
     queue.delete(u)
 
