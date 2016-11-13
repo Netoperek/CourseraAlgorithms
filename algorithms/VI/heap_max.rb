@@ -5,12 +5,22 @@ class HeapMax
     @heap = []
   end
 
+  def check_heap
+    i = 1
+    while i < @heap.size-1
+      p = parent_index(i) 
+      return false if @heap[i] > @heap[p]
+      i += 1
+    end
+    true
+  end
+
   def parent_index(key_index)
     if key_index.odd?
       parent_index = key_index / 2.0
       parent_index.to_i
     else
-      parent_index = key_index - 1
+      parent_index = (key_index/2) - 1
     end
   end
 
